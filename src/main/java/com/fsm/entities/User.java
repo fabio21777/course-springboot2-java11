@@ -14,12 +14,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "tb_user")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -31,8 +30,7 @@ public class User implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
-	
-	
+
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
@@ -88,6 +86,7 @@ public class User implements Serializable {
 	public List<Order> getOrders() {
 		return orders;
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(email, id, name, password, phone);
@@ -111,7 +110,5 @@ public class User implements Serializable {
 		return "User [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", password=" + password
 				+ "]";
 	}
-	
-	
-	
+
 }
